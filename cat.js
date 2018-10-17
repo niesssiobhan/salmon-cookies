@@ -28,7 +28,7 @@ function Cat(name, color, tailSize) {
 this.name = name;
 this.color = color;
 this.tailSize = tailSize;
-allCas.push(this);
+allCat.push(this);
 }
 
 /*
