@@ -11,6 +11,7 @@ var cookieTable = document.getElementById('cookies');
 // }
 
 function Cookies(name, minCustomerPerHour, maxCustomerPerHour, avgCookiesPerCustomer) {
+//these are the constructors/objects
     this.name = name;
     this.minCustomersPerHour = minCustomerPerHour;
     this.maxCustomersPerHour = maxCustomerPerHour;
@@ -20,6 +21,7 @@ function Cookies(name, minCustomerPerHour, maxCustomerPerHour, avgCookiesPerCust
     this.totalCookiesPerHour = [];
     allCookies.push(this);
 }
+//these are instances of the constructor/objects above
 new Cookies('1st and Pike', 23, 65, 6.3);
 new Cookies('SeaTac Airport', 3, 24, 1.2);
 new Cookies('Seattle Center', 11, 38, 3.7);
@@ -147,11 +149,46 @@ for(var k = 0; k < dailyStoreTotals.length; k++){
 
 }
 cookieFooter();
+ 
+//this is creating the form
 
+//these are my global variables
+var newStoreLocation = document.getElementById('store-form'); //this is the for id in my html
+// var clearChatForm = document.getElementById('clear-chat-form'); 
+newStoreLocation.addEventListener('submit', handleAdditionSubmit);
 
+ function handleAdditionSubmit(event) {
+    event.preventDefault(); // gotta have it for this purpose. prevents page reload on a 'submit' event
 
+// Validation to prevent empty form fields
+if (!event.target.name.value || !event.target.minCustomersPerHour.value || !event.target.maxCustomersPerHour.value || !event.target.avgCookiesPerCustomer.value) {
+    return alert('Fields cannot be empty!');
+  }
+//here I am populating the new field spaces 
+    var store = event.target.name.value;
+    var minCus = event.target.minCustomersPerHour.value; 
+    var maxCus = event.target.maxCustomersPerHour.value;  
+    var avgCookie = event.target.avgCookiesPerCustomer.value; 
 
+//creating a new instance for new store locations 
+    var storeAddition = new Cookies(store, minCus, maxCus, avgCookie);
 
+//these will clear the form fields so that new information can be entered 
+    event.target.name.value = null;
+    event.target.minCustomersPerHour.value = null;
+    event.target.maxCustomersPerHour.value = null;
+    event.target.avgCookiesPerCustomer.value = null;
 
-
+    cookieTable.innerHTML = '';
+    makeHeaderRow();
+    
+    //calling the other protoype functions and bind them to the new instace varaibles
+    storeAddition.customersPerHour();
+    storeAddition.getTotalCookiesPerHour();
+    storeAddition.totalCookiesSold();
+    
+    //we are going call the footer, render, and header logic 
+    renderAllCookies();
+    cookieFooter();
+}
 
