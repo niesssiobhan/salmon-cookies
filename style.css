@@ -1,8 +1,49 @@
-
-
-.td {
-    padding: 3px;
+html{
+    background: linear-gradient(hsl(81, 92%, 19%),rgb(192, 88, 4), rgb(212, 164, 4), rgba(252, 233, 66, 0.993));
 }
-.tr {
-    padding: 3px;
+
+table{
+    border: 2px solid black;
+    margin: 30px;
+    margin-right: auto;
+    margin-left: auto;
+    background-color:rgba(219, 159, 159, 0.932);
+}
+table th, td{
+    border: 1px solid black;
+}
+th, td{
+    padding:10px;
+    font-size: 22px;
+    font-family: sans-serif;
+}
+#store-form{
+    border: 2px solid black; 
+    padding: 10px;
+}
+h1{
+    font-size:70px;
+    text-align: center;
+}
+fieldset label{
+    font-size: 18px;
+    font-family:serif;
+    font-weight: bold;
+}
+legend{
+    font-size: 25px;
+    font-weight: bold;
+}
+button{
+    border-radius: 10px;
+    box-shadow: 5px, 5px, 20px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    background-color: rgba(212, 105, 16, 0.822);
+    color: black;
+    border: 2px solid rgba(2, 97, 2, 0.39);
+    font-size: 18px;
+    margin-top: 10px;
+}
+button:hover{
+    background-color: white;
+    color: black;
 }
