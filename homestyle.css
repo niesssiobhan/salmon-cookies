@@ -3,11 +3,29 @@ html{
 }
 h1{
     text-align: center;
-    font-size: 50px;
+    font-size: 70px;
+    background:rgba(153, 89, 6, 0.808);
+    font-family: 'Ultra', serif;
+    font-family: 'Fondamento', cursive;
 }
 ul li{
     display: inline;
     font-size: 30px;
-    
+}
+h2{
+    text-align:center;
+    font-size:35px;
+}
+p{
+    font-size:25px;
+    margin-left:auto;
+    margin-right:auto;
+    font-family:serif;
+}
+footer{
+    background:rgba(158, 158, 18, 0.795);
+    font-size: 20px;
+    text-align: center;
+    font-family:serif;
 }
 
