@@ -37,11 +37,6 @@ Cookies.prototype.customersPerHour = function(maxCustomerPerHour,minCustomerPerH
         this.totalCustomersPerHour.push(totalCustomers)
     }
 };
-// function stores() {
-//     for(var i = 0; i < allCookies.length; i++) {
-//         allCookies[i].customersPerHour();
-//     }
-// };
 Cookies.prototype.getTotalCookiesPerHour = function() {
     // this.customersPerHour();  
     for(var i = 0; i < hours.length; i++) {
@@ -57,7 +52,6 @@ Cookies.prototype.totalCookiesSold = function() {
     }
     return this.totalCookies;
 } 
-
 function callingAllCookies() {
     for(var i = 0; i < allCookies.length; i++){
         allCookies[i].customersPerHour();
@@ -105,15 +99,13 @@ Cookies.prototype.render = function() {
     tdEl = document.createElement('td');
     tdEl.textContent = this.totalCookiesPerHour[i];
     trEl.appendChild(tdEl);
-    
-    // cookieTable.appendChild(trEl);
 }
+// newElement('td', this.totalCookies, trEl);
 tdEl= document.createElement('td');
 tdEl.textContent = this.totalCookies;
 trEl.appendChild(tdEl);
 cookieTable.append(trEl);
 }
-
 renderAllCookies();
 
 function cookieFooter(){
@@ -126,7 +118,6 @@ function cookieFooter(){
             initalTotal += allCookies[j].totalCookiesPerHour[i]
         }
         dailyCookieTotals += initalTotal;
-        console.log(dailyCookieTotals);
         dailyStoreTotals.push(initalTotal);
     }
     dailyStoreTotals.push(dailyCookieTotals);
@@ -138,18 +129,15 @@ thEl.textContent = 'Hourly Totals';
 trEl.setAttribute('id', 'footer'); //locking the footer to the bottom of the table
 trEl.appendChild(thEl);
 cookieTable.appendChild(trEl); //this is working to put to the bottom 
-console.log(thEl);
 
 for(var k = 0; k < dailyStoreTotals.length; k++){
-    var tdEl = document.createElement('td');
+    var tdEl = document.createElement('td'); 
     tdEl.textContent = dailyStoreTotals[k];
     trEl.appendChild(tdEl);
-    cookieTable.appendChild(trEl);
-}
-
+    cookieTable.appendChild(trEl);  
+    }
 }
 cookieFooter();
- 
 //this is creating the form
 
 //these are my global variables
@@ -170,6 +158,10 @@ if (!event.target.name.value || !event.target.minCustomersPerHour.value || !even
     var maxCus = event.target.maxCustomersPerHour.value;  
     var avgCookie = event.target.avgCookiesPerCustomer.value; 
 
+if (isNaN(avgCookie)) {
+    return alert('Please only numbers for Avg. Cookies Per Customer field')
+}
+
 //creating a new instance for new store locations 
     var storeAddition = new Cookies(store, minCus, maxCus, avgCookie);
 
@@ -179,7 +171,7 @@ if (!event.target.name.value || !event.target.minCustomersPerHour.value || !even
     event.target.maxCustomersPerHour.value = null;
     event.target.avgCookiesPerCustomer.value = null;
 
-    cookieTable.innerHTML = '';
+    cookieTable.innerHTML = '';//without this a new table will appear in addition but the new one has the footer
     makeHeaderRow();
     
     //calling the other protoype functions and bind them to the new instace varaibles

@@ -2,8 +2,10 @@
 <html>
 
 <head>
+    <meta charset="utf-8" />
     <title>Cookie Object</title>
     <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="stylesheet" type="text/css" href="reset.css"/>
 </head>
 
 <body>
@@ -11,18 +13,18 @@
     
     <form id="store-form">
         <fieldset>
-            <legend>Chat submission form</legend>
+            <legend>Location submission form</legend>
 
-            <label for="name">Store: </label>
+            <label for="name">Store:</label>
             <input name="name" type="text" size="15" required />
 
-            <label for="minCusotmersPerHour">Min. Customers Per Hour: </label>
-            <input name="minCustomersPerHour" type="text" size="15" required />
+            <label for="minCusotmersPerHour">Min. Customers Per Hour:</label>
+            <input name="minCustomersPerHour" type="number" size="15" required />
             
-            <label for="maxCustomersPerHour">Max. Customers Per Hour: </label>
-            <input name="maxCustomersPerHour" type="text" size="15" required />
+            <label for="maxCustomersPerHour">Max. Customers Per Hour:</label>
+            <input name="maxCustomersPerHour" type="number" size="15" required />
 
-            <label for="avgCookiesPerCustomer">Avg. Cookies Per Customer: </label>
+            <label for="avgCookiesPerCustomer">Avg. Cookies Per Customer:</label>
             <input name="avgCookiesPerCustomer" type="text" size="15" required />
 
             <button type="submit">Create New Store Info</button>
