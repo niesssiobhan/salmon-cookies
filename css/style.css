@@ -1,7 +1,6 @@
 html{
     background: linear-gradient(hsl(81, 92%, 19%),rgb(192, 88, 4), rgb(212, 164, 4), rgba(252, 233, 66, 0.993));
 }
-
 table{
     border: 2px solid black;
     margin: 30px;
@@ -42,13 +41,19 @@ button{
     border: 2px solid rgba(2, 97, 2, 0.39);
     font-size: 18px;
     margin-top: 10px;
+    cursor: pointer;
 }
 button:hover{
     background-color: white;
     color: black;
 }
-ul li{
+body a{
     font-size: 40px;
     font-family:serif;
     font-weight: bold;
+    text-decoration: none;
+    color: inherit
+}
+body ul li:hover{
+    color: white;
 }
